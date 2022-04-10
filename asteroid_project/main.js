@@ -91,22 +91,8 @@ class Asteroid
     this.element.src = asteroid_img_src
     if(this.element.Health == 1)
     {
-      LiveNum -= 1;
-    }
-    this.element.Health = 1;
-    this.element.style.opacity = this.Health;
-    
-  }
-
-  //this function is called when the asteroid reaches far enough down the page-
-  //to hit the space ship, and changes the image to appear like-
-  //it has hit something, before it is reset.
-  setExplodedDamage() 
-  {
-    //Randomizes which sound will be played, creates a-
+      //Randomizes which sound will be played, creates a-
     // random number between 1 and 3 and sets the audio file to use based on that.
-    if(this.element.Health == 1)
-    {
       var rand = (Math.floor(Math.random() * (3 - 1 + 1)) + 1)
       if(rand == 1)
       {
@@ -123,7 +109,20 @@ class Asteroid
         var ShipHit = new Audio('Asteroid_explosion3.mp3');
         ShipHit.play();
       }
-   }
+   
+      LiveNum -= 1;
+    }
+    this.element.Health = 1;
+    this.element.style.opacity = this.Health;
+    
+  }
+
+  //this function is called when the asteroid reaches far enough down the page-
+  //to hit the space ship, and changes the image to appear like-
+  //it has hit something, before it is reset.
+  setExplodedDamage() 
+  {
+    
       this.element.src = asteroid_damage_img_src
   }
 
@@ -180,15 +179,15 @@ function moveAsteroidDown ()
 
     //if the asteroid is below a certain point on the page 
     //this will change the asteroid image before it resets
-    if(Posy > 820)
+    if(Posy > 840)
     {
       asteroid.setExplodedDamage()
     }
-    if(Posy2 > 820)
+    if(Posy2 > 840)
     {
       asteroid2.setExplodedDamage()
     }
-    if(Posy3 > 820)
+    if(Posy3 > 840)
     {
       asteroid3.setExplodedDamage()
     }
